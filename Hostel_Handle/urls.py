@@ -1,6 +1,8 @@
 from django.contrib import admin
 from django.urls import path
 from SellPurchase.views.old import *
+from SellPurchase.views.lostItem import *
+ 
 from django.conf import settings
 from django.conf.urls.static import static
 from SellPurchase.views import signup,student_login,index,addproduct,product,seller,myproducts
@@ -13,6 +15,10 @@ urlpatterns = [
     path('', index.index, name='index'),
 
     path('products', product.Products.as_view(), name='product'),
+    path('lostItem', lostItem, name='lostItem'),
+    path('addLostItem',addLostItem, name='addLostItem'),
+    path('searchItem',searchItem, name='searchItem'),
+      
     path('product/<int:category_id>/', product.Products.as_view(), name='product'), # ye line add k hai
     path('addproduct', addproduct.Addproduct.as_view(), name='addproduct'),
     path('student_login',student_login.Login.as_view(), name='student_login'),

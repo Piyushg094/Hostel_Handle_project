@@ -30,6 +30,8 @@ def student_login(request):
                 error = "yes"
         except:
             error = "yes"
+          
+
     return render(request, 'student_login.html', locals())
 
  

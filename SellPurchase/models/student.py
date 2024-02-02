@@ -11,6 +11,12 @@ class Student(models.Model):
     email=models.EmailField()
     password=models.CharField(max_length=500)
     image=models.ImageField(upload_to='uploads/products/',null=True,blank=True)
+    lostItem=models.ImageField(upload_to='uploads/lostItems/',null=True,blank=True)
+    #   lostItem = models.ImageField(upload_to='uploads/lostItems/', null=True, blank=True)
+    item_name=models.CharField(max_length=50,null=True)
+    information_about_item=models.CharField(max_length=100,null=True,blank=True)
+
+
 
     def register(self):
         self.save()
