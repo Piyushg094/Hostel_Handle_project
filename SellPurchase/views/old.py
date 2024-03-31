@@ -35,19 +35,35 @@ def student_login(request):
     return render(request, 'student_login.html', locals())
 
  
+# def admin_login(request):
+#     error = ""
+#     if request.method == 'POST':
+#         u = request.POST['uname']
+#         p = request.POST['password']
+#         user = authenticate(username=u, password=p)
+#         try:
+#             if user.is_staff:
+#                 login(request, user)
+#                 error = "no"
+#             else:
+#                 error = "yes"
+#         except:
+#             error = "yes"
+#     return render(request, 'admin_login.html', locals())
+
 def admin_login(request):
     error = ""
     if request.method == 'POST':
         u = request.POST['uname']
         p = request.POST['password']
         user = authenticate(username=u, password=p)
-        try:
+        if user:
             if user.is_staff:
                 login(request, user)
                 error = "no"
             else:
                 error = "yes"
-        except:
+        else:
             error = "yes"
     return render(request, 'admin_login.html', locals())
 
